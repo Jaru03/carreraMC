@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+::ng-deep .p-timeline-horizontal .p-timeline-event-marker {
+  width: 3rem !important;    /* 12 x 0.25rem */
+  height: 3rem !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}

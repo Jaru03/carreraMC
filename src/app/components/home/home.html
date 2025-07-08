@@ -1,0 +1,90 @@
+<section class="relative text-white md:px-16">
+    <p-toast/>
+    <p-carousel [value]="carrousel" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions"
+        [circular]="true" autoplayInterval="3000">
+        <ng-template #item let-imagen>
+            <img [src]="imagen" class="h-[80vh] mx-auto brightness-50" alt="">
+        </ng-template>
+    </p-carousel>
+    <div class="absolute bottom-[40%] md:bottom-1/2 left-1/2 -translate-x-1/2">
+        <h2 class=" font-bold py-5 text-center text-2xl  md:text-4xl">Corre por la
+            libertad, corre por sus corazones</h2>
+        <p class=" font-semibold text-center text-lg md:text-xl">Malasaña Kilómetro de
+            Rebelión – 2 de mayo, Madrid</p>
+    </div>
+    <p-button (click)="show()" class="absolute bottom-[15%] left-1/2 -translate-x-1/2" label="Inscribirse" />
+
+    <p-dialog header="Inscribete en la carrera." [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+            <span class="p-text-secondary block mb-8"></span>
+            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+                <input pInputText id="on_label" [(ngModel)]="nombre" autocomplete="off" class="w-full py-2 focus:outline-0" />
+                <label for="on_label">Nombre</label>
+            </p-floatlabel>
+            
+            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+                <input pInputText id="on_label" [(ngModel)]="apellido" autocomplete="off" class="w-full py-2 focus:outline-0" />
+                <label for="on_label">apellido</label>
+            </p-floatlabel>
+            
+            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+                <input pInputText id="on_label" [(ngModel)]="tallaCamiseta" autocomplete="off" class="w-full py-2 focus:outline-0" />
+                <label for="on_label">Talla de Camiseta</label>
+            </p-floatlabel>
+            
+            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+                <input pInputText id="on_label" [(ngModel)]="dni" autocomplete="off" class="w-full py-2 focus:outline-0" />
+                <label for="on_label">DNI</label>
+            </p-floatlabel>
+            
+            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+                <input pInputText id="on_label" [(ngModel)]="phone" autocomplete="off" class="w-full py-2 focus:outline-0" />
+                <label for="on_label">Telefono</label>
+            </p-floatlabel>
+            
+            <div class="flex justify-end gap-2">
+                <p-button label="Cancelar" severity="secondary" (click)="visible = false" />
+                <p-button pRipple (click)="showSuccess()" label="Inscribirse" (click)="visible = false" />
+            </div>
+        </p-dialog>
+
+</section>
+<section>
+    <h2 class="text-center text-3xl py-5 font-semibold">Sobre la carrera</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-4">
+        <h3 class="text-xl text-center font-medium self-end">Un kilómetro de historia, un kilómetro de esperanza</h3>
+        <p class="md:col-[1/2] md:row-[2/3]">El Malasaña Kilómetro de Rebelión es una carrera benéfica de 1 kilómetro
+            que
+            atraviesa el corazón del barrio de Malasaña, en Madrid. Se celebra cada 2 de mayo para conmemorar la
+            histórica rebelión contra la invasión francesa de 1808.
+            Pero esta vez, nuestra lucha es otra: darle vida y fuerza a los corazones de los más pequeños.</p>
+        <img src="corredores.jpg" width="1000" class="md:row-[1/3] md:h-full  self-center justify-self-center" alt="">
+    </div>
+    <h2 class="text-center text-3xl pt-14 pb-5 font-semibold">Corriendo por Menudos Corazones</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-4">
+        <h3 class="md:col-[2/3] text-xl text-center font-medium self-end">Un kilómetro de historia, un kilómetro de
+            esperanza</h3>
+        <p class="md:col-[2/3] md:row-[2/3]">Todos los fondos recaudados se destinan a la Fundación Menudos Corazones,
+            una organización que acompaña y apoya a niños y niñas con cardiopatías congénitas, así como a sus familias.
+            Cada zancada es una muestra de solidaridad. Cada latido cuenta.</p>
+        <img src="menudos-corazones-logo.png" width="1000"
+            class="md:row-[1/3] md:h-full max-h-80 object-scale-down self-center justify-self-center" alt="">
+    </div>
+
+    <h2 class="text-center text-3xl pt-14 pb-5 font-semibold">Datos del Evento</h2>
+    <div class=" flex flex-col px-4 md:px-16">
+        <p-timeline [value]="events" layout="horizontal">
+            <ng-template pTemplate="marker" let-event>
+                <ng-icon class='text-black text-3xl' [name]="event.icon"></ng-icon>
+            </ng-template>
+            
+            <ng-template #content let-event>
+                <p class="font-semibold">{{ event.name }}</p>
+                <p>{{event.info}}</p>
+            </ng-template>
+        </p-timeline>
+
+    </div>
+
+</section>
+
+<app-footer/>
