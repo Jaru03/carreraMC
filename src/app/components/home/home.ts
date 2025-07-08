@@ -12,10 +12,11 @@ import { Toast } from 'primeng/toast';
 import { Dialog } from "primeng/dialog";
 import { FormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule, TagModule, ButtonModule, Timeline, NgIcon, Footer, FloatLabel, Dialog, FormsModule, Toast],
+  imports: [CarouselModule, TagModule, InputTextModule, ButtonModule, Timeline, NgIcon, Footer, FloatLabel, Dialog, FormsModule, Toast],
   providers: [
     provideIcons({
       bootstrapCalendar2CheckFill,
@@ -32,11 +33,11 @@ import { MessageService } from 'primeng/api';
 })
 export class Home {
 
-  nombre = ''
-  apellido = ''
-  phone = ''
-  dni = ''
-  tallaCamiseta = ''
+  nombre : string | undefined
+  apellido: string | undefined
+  phone: string | undefined
+  dni: string | undefined
+  tallaCamiseta: string | undefined
 
   visible: boolean = false;
 
