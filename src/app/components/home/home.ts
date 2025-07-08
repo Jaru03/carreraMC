@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgIcon,  provideIcons } from '@ng-icons/core';
 import { bootstrapCalendar2CheckFill, bootstrapClockFill, bootstrapFlagFill, bootstrapHeartFill, bootstrapMap } from "@ng-icons/bootstrap-icons"
 import { ButtonModule } from 'primeng/button';
@@ -31,7 +31,7 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
-export class Home {
+export class Home implements OnInit{
 
   nombre : string | undefined
   apellido: string | undefined
@@ -52,6 +52,17 @@ export class Home {
   showSuccess() {
         this.messageService.add({ severity: 'success', summary: 'Inscrito', detail: 'Inscripción realizada con Exito!' });
     }
+
+    screenWidth!: number;
+
+  ngOnInit() {
+    this.updateScreenSize();
+    window.addEventListener('resize', this.updateScreenSize.bind(this));
+  }
+
+  updateScreenSize() {
+    this.screenWidth = window.innerWidth;
+  }
 
   constructor(private messageService: MessageService) {
     this.events = [new Event("Fecha", "bootstrapCalendar2CheckFill", "2 de mayo de 2025"),

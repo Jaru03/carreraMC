@@ -1,5 +1,5 @@
 <section class="relative text-white md:px-16">
-    <p-toast/>
+    <p-toast />
     <p-carousel [value]="carrousel" [numVisible]="1" [numScroll]="1" [responsiveOptions]="responsiveOptions"
         [circular]="true" autoplayInterval="3000">
         <ng-template #item let-imagen>
@@ -15,40 +15,44 @@
     <p-button (click)="show()" class="absolute bottom-[15%] left-1/2 -translate-x-1/2" label="Inscribirse" />
 
     <p-dialog header="Inscribete en la carrera." [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-            <span class="p-text-secondary block mb-8"></span>
-            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
-                <input pInputText id="on_label" [(ngModel)]="nombre" autocomplete="off" class="w-full py-2 focus:outline-0" />
-                <label for="on_label">Nombre</label>
-            </p-floatlabel>
-            
-            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
-                <input pInputText id="on_label" [(ngModel)]="apellido" autocomplete="off" class="w-full py-2 focus:outline-0" />
-                <label for="on_label">apellido</label>
-            </p-floatlabel>
-            
-            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
-                <input pInputText id="on_label" [(ngModel)]="tallaCamiseta" autocomplete="off" class="w-full py-2 focus:outline-0" />
-                <label for="on_label">Talla de Camiseta</label>
-            </p-floatlabel>
-            
-            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
-                <input pInputText id="on_label" [(ngModel)]="dni" autocomplete="off" class="w-full py-2 focus:outline-0" />
-                <label for="on_label">DNI</label>
-            </p-floatlabel>
-            
-            <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
-                <input pInputText id="on_label" [(ngModel)]="phone" autocomplete="off" class="w-full py-2 focus:outline-0" />
-                <label for="on_label">Telefono</label>
-            </p-floatlabel>
-            
-            <div class="flex justify-end gap-2">
-                <p-button label="Cancelar" severity="secondary" (click)="visible = false" />
-                <p-button pRipple (click)="showSuccess()" label="Inscribirse" (click)="visible = false" />
-            </div>
-        </p-dialog>
+        <span class="p-text-secondary block mb-8"></span>
+        <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+            <input pInputText id="on_label" [(ngModel)]="nombre" autocomplete="off"
+                class="w-full py-2 focus:outline-0" />
+            <label for="on_label">Nombre</label>
+        </p-floatlabel>
+
+        <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+            <input pInputText id="on_label" [(ngModel)]="apellido" autocomplete="off"
+                class="w-full py-2 focus:outline-0" />
+            <label for="on_label">apellido</label>
+        </p-floatlabel>
+
+        <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+            <input pInputText id="on_label" [(ngModel)]="tallaCamiseta" autocomplete="off"
+                class="w-full py-2 focus:outline-0" />
+            <label for="on_label">Talla de Camiseta</label>
+        </p-floatlabel>
+
+        <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+            <input pInputText id="on_label" [(ngModel)]="dni" autocomplete="off" class="w-full py-2 focus:outline-0" />
+            <label for="on_label">DNI</label>
+        </p-floatlabel>
+
+        <p-floatlabel variant="on" class="border border-gray-400 border-solid rounded-md mb-4">
+            <input pInputText id="on_label" [(ngModel)]="phone" autocomplete="off"
+                class="w-full py-2 focus:outline-0" />
+            <label for="on_label">Telefono</label>
+        </p-floatlabel>
+
+        <div class="flex justify-end gap-2">
+            <p-button label="Cancelar" severity="secondary" (click)="visible = false" />
+            <p-button pRipple (click)="showSuccess()" label="Inscribirse" (click)="visible = false" />
+        </div>
+    </p-dialog>
 
 </section>
-<section >
+<section>
     <h2 class="text-center text-3xl py-5 font-semibold">Sobre la carrera</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-4">
         <h3 class="text-xl text-center font-medium self-end">Un kilómetro de historia, un kilómetro de esperanza</h3>
@@ -59,7 +63,7 @@
             Pero esta vez, nuestra lucha es otra: darle vida y fuerza a los corazones de los más pequeños.</p>
         <img src="corredores.jpg" width="1000" class="md:row-[1/3] md:h-full  self-center justify-self-center" alt="">
     </div>
-    <h2 id="#informacion"    class="text-center text-3xl pt-14 pb-5 font-semibold">Corriendo por Menudos Corazones</h2>
+    <h2 id="#informacion" class="text-center text-3xl pt-14 pb-5 font-semibold">Corriendo por Menudos Corazones</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 px-4 md:px-16 gap-4">
         <h3 class="md:col-[2/3] text-xl text-center font-medium self-end">Un kilómetro de historia, un kilómetro de
             esperanza</h3>
@@ -72,19 +76,33 @@
 
     <h2 class="text-center text-3xl pt-14 pb-5 font-semibold">Datos del Evento</h2>
     <div class=" flex flex-col px-4 md:px-16">
+        @if(screenWidth >800){
         <p-timeline [value]="events" layout="horizontal">
             <ng-template pTemplate="marker" let-event>
                 <ng-icon class='text-black text-3xl' [name]="event.icon"></ng-icon>
             </ng-template>
-            
+
             <ng-template #content let-event>
                 <p class="font-semibold">{{ event.name }}</p>
                 <p>{{event.info}}</p>
             </ng-template>
         </p-timeline>
+        }@else {
+        <p-timeline [value]="events" layout="vertical" align="alternate">
+            <ng-template pTemplate="marker" let-event>
+                <ng-icon class='text-black text-3xl' [name]="event.icon"></ng-icon>
+            </ng-template>
+
+            <ng-template #content let-event>
+                <p class="font-semibold">{{ event.name }}</p>
+                <p>{{event.info}}</p>
+            </ng-template>
+        </p-timeline>
+        }
+
 
     </div>
 
 </section>
 
-<app-footer/>
+<app-footer />
