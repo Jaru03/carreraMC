@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgIcon,  provideIcons } from '@ng-icons/core';
-import { bootstrapCalendar2CheckFill, bootstrapClockFill, bootstrapFlagFill, bootstrapHeartFill, bootstrapMap } from "@ng-icons/bootstrap-icons"
+import { bootstrapCalendar2CheckFill, bootstrapClockFill, bootstrapFlagFill, bootstrapHeartFill, bootstrapMap, bootstrapGeoAltFill } from "@ng-icons/bootstrap-icons"
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
@@ -24,7 +24,7 @@ import { InputTextModule } from 'primeng/inputtext';
       bootstrapFlagFill,
       bootstrapHeartFill,
       bootstrapMap,
-      
+      bootstrapGeoAltFill
     }),
     MessageService
   ],
@@ -66,10 +66,10 @@ export class Home implements OnInit{
 
   constructor(private messageService: MessageService) {
     this.events = [new Event("Fecha", "bootstrapCalendar2CheckFill", "2 de mayo de 2025"),
-      new Event("Hora", "bootstrapClockFill", "10:00 AM"),
-      new Event("Lugar", "bootstrapFlagFill", "Plaza del Dos de Mayo, Malasaña"),
-      new Event("Causa", "bootstrapHeartFill", "Fundación Menudos Corazones"),
-      new Event("Distancia", "bootstrapMap", " 1 km")
+      new Event("Hora", "bootstrapClockFill", "20:00hrs"),
+      new Event("Distancia", "bootstrapMap", " 15 km"),
+      new Event("Inicio", "bootstrapGeoAltFill" , "Plaza del Dos de Mayo, Malasaña"),
+      new Event("Final", "bootstrapFlagFill", "Casa de Campo"),
     ]
   }
 
